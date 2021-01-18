@@ -16,28 +16,25 @@
 			line-height: 1.5em;
 			margin-bottom: 20px;
 		}
-		.author, .date {
-			font-weight: bold;
-		}
 	</style>
 </head>
 <body>
 	<div id="demo">
-		<!-- <pre>{{commits}}</pre> -->
 		<h1>Info-trafic TAN temps réel</h1>
 
-		<pre>{{infos}}</pre>
+		<!-- <pre>{{infos}}</pre> -->
 
-		<!-- <ul>
-			<li v-for="record in infos">
-				<span class="intitule">{{ record.infos.intitule}}</span><br>
+		<ul>
+			<li v-for="record in infos.records">
+				<span class="intitule">{{record.fields.intitule}}</span><br>
+				- Description : <span class="resume">{{record.fields.resume}}</span><br>
 			</li>
-		</ul> -->
+		</ul>
 	</div>
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	<script>
-		const apiURL = 'https://data.nantesmetropole.fr/api/datasets/1.0/search/?q='
+		const apiURL = 'https://data.nantesmetropole.fr/api/records/1.0/search/?dataset=244400404_info-trafic-tan-temps-reel&q='
 
 		const demo = new Vue({
 			el: '#demo',
